@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  action: MyString
+  issue_changes: {}
+  sender: MyString
+  issue: one
+
+two:
+  action: MyString
+  issue_changes: {}
+  sender: MyString
+  issue: two

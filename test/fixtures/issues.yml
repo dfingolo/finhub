@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  title: MyString
+  state: MyString
+  locked: false
+  github_id: 1
+  github_user_id: 1
+  github_url: MyString
+  github_created_at: 2020-03-14 11:59:56
+  github_updated_at: 2020-03-14 11:59:56
+  github_closed_at: 2020-03-14 11:59:56
+
+two:
+  number: 2
+  title: MyString
+  state: MyString
+  locked: false
+  github_id: 2
+  github_user_id: 1
+  github_url: MyString
+  github_created_at: 2020-03-14 11:59:56
+  github_updated_at: 2020-03-14 11:59:56
+  github_closed_at: 2020-03-14 11:59:56
