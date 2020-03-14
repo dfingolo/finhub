@@ -2,13 +2,14 @@ module API::V1
   class WebhooksController < ApplicationController
     include RegisterWebhook
 
-    # Register Github issue event
+    # Register issue webhook in Github
     # POST /api/v1/webhook
     def create
-      if create_issue_event(params[:webhook])
-        render json: { message: 'Event successfully received' }, status: 200
+      if @repository = Repository.find_or_create_by(username: params[:username], name: params[:repository])
+        response = configure_webhook(params[:password])
+        render json: response[:body], status: response[:status]
       else
-        render json: { error: 'Invalid event' }, status: 400
+        render json: { error: 'Invalid parameters' }, status: 400
       end
     end
   end

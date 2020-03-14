@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyString
+  name: MyString
+  token: 2510b035-81a5-42ca-8b4c-4075cce1bf92
+
+two:
+  username: MyString
+  name: MyString
+  token: 99ecb848-2d3d-41db-9b03-b5ab3444cb8b

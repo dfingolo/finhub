@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_14_151203) do
+ActiveRecord::Schema.define(version: 2020_03_14_183245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
   create_table "issue_events", force: :cascade do |t|
     t.string "action"
@@ -38,7 +39,19 @@ ActiveRecord::Schema.define(version: 2020_03_14_151203) do
     t.datetime "github_closed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "repository_id"
+    t.index ["repository_id"], name: "index_issues_on_repository_id"
+  end
+
+  create_table "repositories", force: :cascade do |t|
+    t.string "username"
+    t.string "name"
+    t.uuid "token", default: -> { "uuid_generate_v4()" }, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["token"], name: "index_repositories_on_token"
   end
 
   add_foreign_key "issue_events", "issues"
+  add_foreign_key "issues", "repositories"
 end

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resource :webhook, only: [:create]
+      resource :event, only: [:create]
     end
   end
 end
