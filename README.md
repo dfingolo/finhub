@@ -1,24 +1,50 @@
-# README
+# Monitoramento de issues do Github
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Descrição
+O objetivo dessa API é monitorar todos os eventos de issues em um repositório do Github,
+como por exemplo quando uma issue é criada, alterada etc.
 
-Things you may want to cover:
+## Instalação
 
-* Ruby version
+### Clonar o projeto
+```sh
+$ git clonegit@github.com:dfingolo/finhub.git
+$ cd finhub
+```
+### Instalar dependências do projeto
+```sh
+$ bundle install
+$ rails db:create
+$ rails db:migrate
+```
+### Iniciar o serviço
+```sh
+$ rails server
+```
+### Configurar webhook no Github
+Para configurar o monitoramento de um repositório, é só fazer a seguinte requisição:
+```sh
+POST /api/v1/webhook
 
-* System dependencies
+{
+  "username": "github_username",
+  "password": "github_password",
+  "repository": "github_repository_name"
+}
+```
 
-* Configuration
+Retornando com sucesso, guarde o `token` do retorno da API vai precisar dele para
+posteriormente buscar os eventos de uma issue
 
-* Database creation
+**Importante:** o token é diferente para cada configuração requisitada.
 
-* Database initialization
+```sh
+{
+  "message": "Webhook successfully configured",
+  "token": "699d3361-4baf-42db-92fc-fd8eeb443b80"
+}
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Buscando eventos de uma issue
+Para buscar os eventos de uma issue é só fazer uma requisição **GET** no caminho
+`/api/v1/issues/:number` e enviar no header `x-api-token: token_da_configuracao`
