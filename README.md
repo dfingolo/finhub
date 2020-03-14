@@ -36,14 +36,13 @@ POST /api/v1/webhook
 Retornando com sucesso, guarde o `token` do retorno da API vai precisar dele para
 posteriormente buscar os eventos de uma issue
 
-**Importante:** o token é diferente para cada configuração requisitada.
-
 ```sh
 {
   "message": "Webhook successfully configured",
   "token": "699d3361-4baf-42db-92fc-fd8eeb443b80"
 }
 ```
+**Importante:** o token é diferente para cada configuração requisitada.
 
 ### Buscando eventos de uma issue
 Para buscar os eventos de uma issue é só fazer uma requisição **GET** no caminho
