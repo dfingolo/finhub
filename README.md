@@ -53,7 +53,7 @@ Para buscar os eventos de uma issue é só fazer uma requisição **GET** no cam
 ```sh
 $ bundle exec rspec
 ```
-Or run:
+Ou:
 ```sh
 $ bundle exec rspec spec/controllers/api/v1/webhooks_controller_spec.rb
 $ bundle exec rspec spec/controllers/api/v1/events_controller_spec.rb
