@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::API
+  before_action :autenticate_repository!
+
   protected
 
   private
@@ -18,6 +20,6 @@ class ApplicationController < ActionController::API
   end
 
   def sent_repository_token
-    request.headers['x-api-token']
+    request.headers['X-Api-Token']
   end
 end

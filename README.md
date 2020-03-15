@@ -46,4 +46,4 @@ posteriormente buscar os eventos de uma issue
 
 ### Buscando eventos de uma issue
 Para buscar os eventos de uma issue é só fazer uma requisição **GET** no caminho
-`/api/v1/issues/:number` e enviar no header `x-api-token: token_da_configuracao`
+`/api/v1/issues/:number` e enviar no header `X-Api-Token: token_da_configuracao`

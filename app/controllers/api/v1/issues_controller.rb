@@ -1,7 +1,5 @@
 module API::V1
   class IssuesController < ApplicationController
-    before_action :autenticate_repository!
-
     # Search issue by number
     # GET /api/v1/issues/:number
     def show

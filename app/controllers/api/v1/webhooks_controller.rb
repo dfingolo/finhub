@@ -2,6 +2,8 @@ module API::V1
   class WebhooksController < ApplicationController
     include RegisterWebhook
 
+    skip_before_action :autenticate_repository!
+
     # Register issue webhook in Github
     # POST /api/v1/webhook username:string password:string repository:string
     def create
