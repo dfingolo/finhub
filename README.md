@@ -47,3 +47,18 @@ posteriormente buscar os eventos de uma issue
 ### Buscando eventos de uma issue
 Para buscar os eventos de uma issue é só fazer uma requisição **GET** no caminho
 `/api/v1/issues/:number` e enviar no header `X-Api-Token: token_da_configuracao`
+
+## API de testes
+### Rspec
+```sh
+$ bundle exec rspec
+```
+Or run:
+```sh
+$ bundle exec rspec spec/controllers/api/v1/webhooks_controller_spec.rb
+$ bundle exec rspec spec/controllers/api/v1/events_controller_spec.rb
+$ bundle exec rspec spec/controllers/api/v1/issues_controller_spec.rb
+$ bundle exec rspec spec/models/issue_spec.rb
+$ bundle exec rspec spec/models/issue_event_spec.rb
+$ bundle exec rspec spec/models/repository_spec.rb
+```
