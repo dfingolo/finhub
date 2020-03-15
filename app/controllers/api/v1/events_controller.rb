@@ -18,11 +18,14 @@ module API::V1
 
     def sent_repository_token
       return if request.headers['X-Hub-Signature'].blank?
+      return if params[:event].blank? || params[:event][:repository].blank? || params[:event][:sender].blank?
 
       if repository = Repository.find_by(name: params[:event][:repository][:name], username: params[:event][:sender][:login])
         encoded_token = 'sha1=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha1'), repository.token, request.body.read)
-        return repository.token if Rack::Utils.secure_compare(encoded_token, request.headers['X-Hub-Signature'])
+        @sent_repository_token ||= repository.token if Rack::Utils.secure_compare(encoded_token, request.headers['X-Hub-Signature'])
       end
+
+      @sent_repository_token
     end
   end
 end

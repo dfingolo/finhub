@@ -20,6 +20,6 @@ class ApplicationController < ActionController::API
   end
 
   def sent_repository_token
-    request.headers['X-Api-Token']
+    @sent_repository_token ||= request.headers['X-Api-Token']
   end
 end
