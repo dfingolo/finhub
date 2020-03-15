@@ -17,6 +17,12 @@ $ bundle install
 $ rails db:create
 $ rails db:migrate
 ```
+### Criar váriaveis de ambiente
+Na raiz do projeto crie o arquivo `.env` e adicione o host do seu serviço como no exemplo:
+```sh
+HOST=https://e87f7b76.ngrok.io
+```
+
 ### Iniciar o serviço
 ```sh
 $ rails server
