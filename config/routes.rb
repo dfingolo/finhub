@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
       resource :event, only: [:create]
 
-      resources :issues, param: :number, only: [:show]
+      resources :issues, param: :number, only: [:index, :show]
     end
   end
 end
