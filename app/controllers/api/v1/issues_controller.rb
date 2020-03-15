@@ -5,7 +5,9 @@ module API::V1
     def show
       @issue = current_repository.issues.find_by(number: params[:number])
 
-      head :not_found if @issue.blank?
+      if @issue.blank?
+        render json: { error: 'Issue not found' }, status: :not_found
+      end
     end
   end
 end

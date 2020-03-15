@@ -7,7 +7,7 @@ class ApplicationController < ActionController::API
 
   def autenticate_repository!
     if current_repository.nil?
-      render(json: { error: 'Token inválido' }, status: :unauthorized) && return
+      render(json: { error: 'Invalid token' }, status: :unauthorized) && return
     end
   end
 
